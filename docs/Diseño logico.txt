@@ -1,0 +1,15 @@
+Usuarios(DNI, Nombre, Apellido, Correo, Domicilio, Usuario, Contraseña)
+
+Pedidos(Numero_ped, Fecha_ped, Hora_ped, DNI_ped, Cod_prod_ped)
+
+Productos(Codigo_prod, Nombre_prod, Marca_prod, Precio_prod, Descripcion_prod, Imagen_prod, Cod_cat_prod)
+
+Categorias(Codigo_cat, Nombre_cat, Descripcion_cat)
+
+Ventas(Codigo_ven, Fecha_ven, Num_ped_ven, Num_fac_ven)
+
+Facturas(Numero_fac, Tipo_fac, Fecha_fac, Detalle_fac, Total_fac)
+
+Canchas(Codigo_can, Descripcion_can, Disciplina_can, Precio_can)
+
+Reserva(Numero_res, Fecha_res, Hora_res, DNI_res, Cod_can_res)

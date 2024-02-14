@@ -1,0 +1,13 @@
+*{
+    padding: 0;
+    margin-top: 0;
+    box-sizing: border-box;
+}
+
+header{
+    background-image:url(../img/header.jpg);
+    background-position: center;
+    height: 60vh;
+    background-repeat: no-repeat;
+    background-size: cover;
+};
