@@ -1,0 +1,145 @@
+**********     Caso de uso "Registrarse"     **********
+
+Escenario principal
+1. El usuario solicita registrarse.
+2. El sistema muestra la interfaz de registro de usuarios.
+3. El usuario ingresa los datos requeridos y los envía.
+4. El sistema informa que el usuario se ha registrado con éxito.
+
+Escenarios alternativos
+4.1. El sistema informa que el usuario ya se encuentra registrado.
+4.2. El sistema muestra la interfaz de inicio de sesión.
+
+Precondición:
+-Que el usuario no se encuentre registrado en el sistema.
+
+Postcondición:
+-Se genera un nuevo usuario en el sistema.
+
+**********     Caso de uso "Iniciar sesión"     **********
+
+Escenario principal
+1. El usuario solicita iniciar su sesión.
+2. El sistema muestra la interfaz de inicio de sesión.
+3. El usuario ingresa sus credenciales y las envía.
+4. El sistema muestra la interfaz principal.
+
+Escenarios alternativos
+4.1. El sistema informa que las credenciales no son válidas.
+4.2. El sistema vuelve al punto 2.
+
+Precondición:
+-Que el usuario se encuentre registrado en el sistema.
+-Que la sesión del usuario se encuentre cerrada.
+
+Postcondición:
+-La sesión del usuario se encuentra abierta.
+
+**********     Caso de uso "Cerrar sesión"     **********
+
+Escenario principal
+1. El usuario solicita cerrar su sesión.
+2. El sistema solicita la confirmación de la solicitud.
+3. El usuario confirma la solicitud.
+4. El sistema muestra la interfaz de inicio de sesión.
+
+Escenarios alternativos
+3.1. El usuario no confirma la solicitud.
+3.2. El caso de uso termina.
+
+Precondición:
+-Que la sesión del usuario se encuentre iniciada.
+
+Postcondición:
+-La sesión del usuario se encuentra cerrada.
+
+**********     Caso de uso "Realizar reservas"     **********
+
+Escenario principal
+1. El usuario solicita realizar una reserva.
+2. El sistema muestra la interfaz de reservas.
+3. El usuario selecciona los datos requeridos y los envía.
+4. El sistema informa que la reserva se ha realizado con éxito.
+
+Escenarios alternativos
+3.1. El sistema informa que el usuario está penalizado por incumplimiento.
+3.2. El sistema muestra la interfaz principal.
+
+Precondición:
+-Que el usuario se encuentre registrado en el sistema.
+-Que la sesión del usuario se encuentre iniciada.
+-Que el usuario no posea penalizaciones.
+
+Postcondición:
+-Se genera una nueva reserva en el sistema.
+
+**********     Caso de uso "Cancelar reservas"     **********
+
+Escenario principal
+1. El usuario solicita cancelar una reserva.
+2. El sistema muestra la interfaz de reservas realizadas.
+3. El usuario selecciona la reserva a cancelar.
+4. El sistema informa que la reserva se ha cancelado con éxito.
+
+Escenarios alternativos
+3.1. El sistema informa que no existen reservas a cancelar.
+3.2. El sistema muestra la interfaz principal.
+
+Precondición:
+-Que el usuario se encuentre registrado en el sistema.
+-Que la sesión del usuario se encuentre iniciada.
+-Que el usuario posea reservas realizadas.
+
+Postcondición:
+-Se elimina una reserva del sistema.
+
+**********     Caso de uso "Agregar productos"     **********
+
+Escenario principal
+1. El usuario solicita agregar un producto a su carrito de compras.
+2. El sistema muestra la interfaz de la tienda de compras.
+3. El usuario selecciona el producto que desea agregar.
+4. El sistema informa que el producto se ha agregado con éxito.
+
+Precondición:
+-Que el usuario se encuentre registrado en el sistema.
+-Que la sesión del usuario se encuentre iniciada.
+
+Postcondición:
+-Se agrega un producto al pedido del usuario.
+
+**********     Caso de uso "Quitar productos"     **********
+
+Escenario principal
+1. El usuario solicita quitar un producto de su carrito de compras.
+2. El sistema muestra la interfaz de carrito de compras.
+3. El usuario selecciona el producto que desea quitar.
+4. El sistema informa que el producto se ha quitado con éxito.
+
+Precondición:
+-Que el usuario se encuentre registrado en el sistema.
+-Que la sesión del usuario se encuentre iniciada.
+-Que el usuario posea un producto agregado en el carrito de compras.
+
+Postcondición:
+-Se quita un producto del pedido del usuario.
+
+**********     Caso de uso "Realizar pedidos"     **********
+
+Escenario principal
+1. El usuario solicita realizar un pedido.
+2. El sistema muestra la interfaz de compras.
+3. El usuario ingresa los datos requeridos y los envía.
+4. El sistema informa que el pedido se ha realizado con éxito.
+
+Escenarios alternativos
+4.1. El sistema informa que la compra no ha sido aprobada.
+4.2. El sistema vuelve al punto 2.
+
+Precondición:
+-Que el usuario se encuentre registrado en el sistema.
+-Que la sesión del usuario se encuentre iniciada.
+-Que el usuario posea productos en su carrito de compras.
+
+Postcondición:
+-Se genera un nuevo pedido en el sistema.
