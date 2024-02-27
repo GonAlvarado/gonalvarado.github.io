@@ -22,7 +22,7 @@ class DAOProductos:
                 data = (nombre, marca, precio, descripcion, imagen, categoria)
                 cursor.execute(query, data)
                 self.conexion.commit()
-                self.conexion.close()
+                #self.conexion.close()
                 print("Se insertó el producto exitosamente.")
             except:
                 print("La inserción falló.")
@@ -34,9 +34,13 @@ class DAOProductos:
                 query= "SELECT * FROM `productos` WHERE `nombre_prod` LIKE '%{}%'".format(nombre)
                 cursor.execute(query)
                 rows = cursor.fetchall()
-                for row in rows:
-                    print(row)
-                self.conexion.close()
+                if len(rows) > 0:
+                    for row in rows:
+                        print(row)
+                else:
+                    print('No existe producto con el nombre ingresado.')
+                #self.conexion.close()
+                return rows
             except:
                 print("No se encontraron productos.")
 
@@ -47,7 +51,8 @@ class DAOProductos:
                 sentenciaSQL = "DELETE FROM productos WHERE `productos`.`codigo_prod` = {}".format(codigo)
                 cursor.execute(sentenciaSQL)
                 self.conexion.commit()                
-                self.conexion.close()
+                #self.conexion.close()
+                print('Se elimino el producto exitosamente.')
             except:
                 print("La eliminación falló.")
 
@@ -58,7 +63,8 @@ class DAOProductos:
                 sentenciaSQL = "UPDATE `productos` SET `precio_prod` = '{}' WHERE `productos`.`codigo_prod` = {}".format(precio, codigo)
                 cursor.execute(sentenciaSQL)
                 self.conexion.commit()                
-                self.conexion.close()
+                #self.conexion.close()
+                print('Se actualizó el precio exitosamente.')
             except:
                 print("La actualización falló.")
 
@@ -71,6 +77,19 @@ class DAOProductos:
                 rows = cursor.fetchall()
                 for row in rows:
                     print(row)
-                self.conexion.close()
+                #self.conexion.close()
             except:
                 print("No se encontraron productos.")
+
+    def listar_categorias(self):
+        if self.conexion.is_connected():
+            try:
+                cursor = self.conexion.cursor()
+                query= "SELECT * FROM `categorias`"
+                cursor.execute(query)
+                rows = cursor.fetchall()
+                for row in rows:
+                    print(row)
+                #self.conexion.close()
+            except:
+                print("No se encontraron categorías.")

@@ -22,9 +22,11 @@ class Pedido:
         if producto in self.productos : 
             indice = self.productos.index(producto)
             self.cantidades[indice] += cantidad
+            print('Se agregó exitosamente')
         else: 
             self.cantidades.append(cantidad)
             self.productos.append(producto)
+            print('Se agregó exitosamente')
     
     def quitar_producto(self, producto, cantidad):
         if not isinstance(producto, Producto):
@@ -42,7 +44,8 @@ class Pedido:
             if self.cantidades[indice] <=0 :
                 indice = self.productos.index(producto)
                 del self.productos[indice]
-                del self.cantidades[indice] 
+                del self.cantidades[indice]
+            print('Se quitó exitosamente')
         else: 
             raise Exception('Error al quitar producto: El producto no existe')
     
@@ -56,4 +59,4 @@ class Pedido:
     
     def mostrar_productos(self): 
         for (p,c) in zip(self.productos,self.cantidades):
-            print('Producto:' + p.get_Nombre() + ', Cantidad:' + str(c))
+            print('Código:' + str(p.get_Codigo()) + ', Producto:' + p.get_Nombre() + ', Cantidad:' + str(c))
