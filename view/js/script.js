@@ -12,6 +12,10 @@ function validarLogin(){
         helpUser.innerHTML = ""
         helpPass.innerHTML = "Debe ingresar una contraseña"
         return false
+    }else if(user!="User1" || pass!="Pass1"){
+        helpUser.innerHTML = ""
+        helpPass.innerHTML = "Usuario y contraseña invalidos"
+        return false
     }else{
         return true
     }
